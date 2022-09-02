@@ -1,0 +1,199 @@
+@prefix : <http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health> .
+
+<http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health> rdf:type owl:Ontology ;
+                                                                             rdfs:comment "antology about athlete's mental health"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#affect
+:affect rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdfs:domain :type_of_sport ;
+        rdfs:range :mental_health ;
+        rdfs:comment "type of sport affect mental health" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#support
+:support rdf:type owl:ObjectProperty ;
+         rdfs:domain :mental_health ;
+         rdfs:range :professional ;
+         rdfs:comment "profissional support mental health" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#JoinedOn
+:JoinedOn rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Athlete ,
+                      :professional ;
+          rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#Type_of_sport
+:Type_of_sport rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Athlete ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#athleteID
+:athleteID rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Athlete ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#profissional_id
+:profissional_id rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :professional ;
+                 rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#Athlete
+:Athlete rdf:type owl:Class ;
+         rdfs:subClassOf <http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#athlete's_mental_health> .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#female
+:female rdf:type owl:Class ;
+        rdfs:subClassOf :gender .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#gender
+:gender rdf:type owl:Class ;
+        rdfs:subClassOf :mental_health .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#group_sports
+:group_sports rdf:type owl:Class ;
+              rdfs:subClassOf :higher_mental_health ,
+                              :type_of_sport .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#higher_mental_health
+:higher_mental_health rdf:type owl:Class ;
+                      rdfs:subClassOf :mental_health .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#individual_sports
+:individual_sports rdf:type owl:Class ;
+                   rdfs:subClassOf :low_mental_health ,
+                                   :type_of_sport .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#low_mental_health
+:low_mental_health rdf:type owl:Class ;
+                   rdfs:subClassOf :mental_health .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#male
+:male rdf:type owl:Class ;
+      rdfs:subClassOf :gender .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#mental_health
+:mental_health rdf:type owl:Class ;
+               rdfs:subClassOf :Athlete .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#mental_health_resource
+:mental_health_resource rdf:type owl:Class ;
+                        rdfs:subClassOf :professional ,
+                                        :risky_behavior .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#professional
+:professional rdf:type owl:Class ;
+              rdfs:subClassOf :Athlete .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#risk_tolerance
+:risk_tolerance rdf:type owl:Class ;
+                rdfs:subClassOf :female ,
+                                :sport_performance .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#risky_behavior
+:risky_behavior rdf:type owl:Class ;
+                rdfs:subClassOf :male ,
+                                :sport_performance .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#sport_performance
+:sport_performance rdf:type owl:Class ;
+                   rdfs:subClassOf :Athlete .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#support_and_raise_awareness
+:support_and_raise_awareness rdf:type owl:Class ;
+                             rdfs:subClassOf :mental_health_resource ,
+                                             :risk_tolerance .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#type_of_sport
+:type_of_sport rdf:type owl:Class ;
+               rdfs:subClassOf :Athlete .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#athlete's_mental_health
+<http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#athlete's_mental_health> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#adam
+:adam rdf:type owl:NamedIndividual ,
+               :Athlete ;
+      :Type_of_sport "basketball"^^xsd:string ;
+      :athleteID "athlete2"^^xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#basketball
+:basketball rdf:type owl:NamedIndividual ,
+                     :type_of_sport .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#football
+:football rdf:type owl:NamedIndividual ,
+                   :type_of_sport .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#john
+:john rdf:type owl:NamedIndividual ,
+               :professional ;
+      :support :mike ;
+      :JoinedOn "2021-01-22T08:00:00"^^xsd:dateTime ;
+      :profissional_id "doctor1" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#mike
+:mike rdf:type owl:NamedIndividual ,
+               :Athlete ;
+      :Type_of_sport "football"^^xsd:string ;
+      :athleteID "athlete1"^^xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2022/6/athlete's_mental_health#smith
+:smith rdf:type owl:NamedIndividual ,
+                :professional ;
+       :support :adam ;
+       :JoinedOn "2020-02-10T09:00:00"^^xsd:dateTime ;
+       :profissional_id "doctor2"^^xsd:string .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
